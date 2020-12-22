@@ -21,3 +21,4 @@
         "build": "encore production --progress"
     }
 }
+

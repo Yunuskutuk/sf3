@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %} Catégories #{{ category.name }}{% endblock %}
+
+{% block body %}
+
+    <h1> {{ category.name }}</h1>
+
+    <div class="container-fluid">
+        <div class="row program_index">
+            {% for program in programs %}
+            <div class="col-lg-4 col-md-6 program">
+                <p> N° de la série : {{ program.id }}</p>
+                <a href="{{ path("program_show", { id: program.id }) }}"><h1 class="mt-0">{{ program.title }}</h1></a>
+                <p>{{ program.summary }}</p>
+
+            </div>
+        </div>
+        {% else %}
+            <h2>Aucune série trouvée.</h2>
+        {% endfor %}
+    </div>
+
+
+    <a href="{{ path('category_index') }}">
+        Retour à la liste des catégories
+    </a>
+
+{% endblock %}
