@@ -5,10 +5,8 @@
         "bootstrap": "^4.5.3",
         "core-js": "^3.0.0",
         "jquery": "^3.5.1",
-        "node-sass": "^5.0.0",
         "popper.js": "^1.16.1",
         "regenerator-runtime": "^0.13.2",
-        "sass-loader": "^10.1.0",
         "stimulus": "^2.0.0",
         "webpack-notifier": "^1.6.0"
     },
@@ -19,6 +17,9 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "node-sass": "4.14.1",
+        "sass-loader": "^9.0.0"
     }
 }
-

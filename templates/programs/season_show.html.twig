@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ program.title }} | Saison {{ season.number }}
+{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0"> {{ program.title }} </h1>
+            <h1>   {{ season.description }} </h1>
+            <div class>
+                Date de diffusion: {{ season.year }} <br>
+                {{ season.description }} de {{ program.title }}
+            </div>
+            <div>
+                <br>
+                Liste des épisodes:
+                <div class="tab"><br>
+                    {% for episode in episodes %}
+                        Episode {{ episode.number }}: {{ episode.title }} <br>
+                        <div class="season">
+                            <a href="{{ path("program_episode_show", { 'programId': program.id, 'seasonId' : season.id, 'episodeId' : episode.id}) }}"> Voir le détail de l'épisode {{ episode.number }}</a>
+                        </div>
+                        <br>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="retour">
+                <br><br>
+                <a href="{{ path('program_show', {id : program.id}) }}">
+                    Retour à la fiche du programme
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
